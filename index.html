@@ -1,58 +1,117 @@
 <html>
-    <head>
+  <head>
+    <title>Crud System |Product store </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/index_style.css">
+    <link rel="icon" href="images/icon.png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
-
-    </head>
-    <body>
-
-
-        <div class="container py-5">
-
-            <label class="form-label">Product Name</label>
-            <input class="form-control mb-4" id="pNameId">
-
-            <label class="form-label">Product Price</label>
-            <input class="form-control mb-4" id="pPriceId">
-
-            <label class="form-label">Product Category</label>
-            <input class="form-control mb-4" id="pCatId">
-
-            <label class="form-label">Product Description</label>
-            <textarea class="form-control mb-4" id="pDescId"></textarea>
-
-            <br>
-            <button onclick="addProduct()" class="btn btn-primary">Add Product</button>
-
-            <br><br>
-
-            <input type="text" id="myInput" onkeyup="table_search()"  class="form-control w-50 m-auto" placeholder="Search Product">
+  <body>
+    <header id="to-top">
+      <i class="fab fa-cuttlefish"></i>
+      <i class="far fa-registered"></i>
+      <i class="fab fa-uniregistry"></i>
+      <i class="fab fa-dyalog"></i>
+    </header>
 
 
-            <br><br><br>
+    <section class="crud-system w-75 mx-auto my-3 p-4 shadow rounded ">
+      <div>
+        <div class="form-group">
+          <label>Product Name</label> 
+          <input type="text" id="product-name" class="form-control" />
+          <div class="alert alert-danger d-none" id="PNameAlert">
+            Product Name must start with capital letter and contains minimum 3 letters, Can't contain special characters
+          </div>
+        </div>
 
-            <table class="table">
-                <thead class="text-primary">
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Description</th>
-                    <th class="text-warning">Update</th>
-                    <th class="text-danger">Delete</th>
-                    
-                </thead>
-                <tbody id="tBody">
+        <div class="form-group">
+          <label>Product Category</label> 
+          <input type="text" id="product-category" class="form-control" />
+          <div class="alert alert-danger d-none" id="PCategoryAlert">
+            Product Category must contain minimum 5 letters, Can't contain special characters
+          </div>
+        </div>
 
-                </tbody>
-            </table>
+        <div class="form-group">
+          <label>Product Price</label> 
+          <input type="number" id="product-price" class="form-control" />
+          <div class="alert alert-danger d-none" id="PPriceAlert">
+            Product Price must be (Numbers Only)
+          </div>
+        </div>
 
+        <div class="form-group">
+          <label>Product Description</label> 
+          <textarea
+            class="form-control"
+            id="product-description"
+            rows="2"
+          ></textarea>
+          <div class="alert alert-danger d-none" id="PDescriptionAlert">
+            Product Description must contain minimum 3 letters, Can't contain special characters
+          </div>
 
         </div>
-     
 
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/mine.js"></script>
-    </body>
+        <div id="btn-group" class="form-group text-center">
+          <p id="empty-input-alert"></p>
+          <a href="#display-table" class="text-decoration-none" id="display-table-href">
+            <button id="add-btn" class="btn my-btn mt-3">Add Product</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="crud-table w-75 mx-auto my-3 p-4 shadow rounded" id="display-table">
+      
+      <input
+        class="form-control my-4"
+        id="search-text"
+        type="text"
+        placeholder="&#xf002; &nbsp; Search Product..."
+        style="font-family: FontAwesome"
+      />
+
+      <div class="table-responsive">
+        <table class="table table-hover w-100">
+          <thead class="table-head">
+            <td>ID</td>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Price</td>
+            <td>Description</td>
+            <td>edit</td>
+            <td>delete</td>
+          </thead>
+  
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <div class="to-top-btn">
+      <a href="#to-top" class="text-decoration-none text-white">
+        <i class="fas fa-chevron-up"></i>
+      </a>
+    </div>
+
+    <div class="foot">
+      <p>Products Store - Designed by omar nasr</p>
+    </div>
+    
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
